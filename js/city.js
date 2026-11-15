@@ -909,8 +909,7 @@ addEventListener('resize', resize);
 resize();
 
 const clock = new THREE.Clock();
-function loop() {
-  const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
+function tick(dt, t) {
   updateSky(dt);
   animations.forEach(f => f(t, dt, night));
   updateWalkers(t, dt);
@@ -931,8 +930,22 @@ function loop() {
   updateSun();
   renderer.render(scene, camera);
   updateLabels();
+}
+function loop() {
+  if (!recording.manual) tick(Math.min(clock.getDelta(), 0.05), clock.elapsedTime);
   requestAnimationFrame(loop);
 }
+
+// brand/reel.html drives the city frame by frame through this to record smooth videos
+const recording = window.__city = {
+  manual: false, time: 0, camera, controls, renderer, citizens, walkers: walkers.length,
+  frame(dt) { this.time += dt; tick(dt, this.time); },
+  setHouseCount(n) { Object.values(H).forEach(m => m.count = Math.min(n, N)); },
+  setWalkers(on) { pBody.count = pHead.count = on ? walkers.length : 0; },
+  setTime(mode) { timeMode = mode; night = mode === 'night' ? 1 : 0; },
+  // world point -> 0..1 screen position, for drawing labels onto recorded frames
+  project(x, y, z) { const p = new THREE.Vector3(x, y, z).project(camera); return { x: (p.x + 1) / 2, y: (1 - p.y) / 2, visible: p.z < 1 }; },
+};
 
 // ?time=day|night and ?view=plaza let brand.html take clean pictures of the city.
 // This runs before the first frame, because hidden frames may only ever draw that one.
