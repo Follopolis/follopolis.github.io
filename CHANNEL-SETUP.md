@@ -3,7 +3,7 @@
 **Name:** Follopolis ("follow" + "polis", the Greek word for city)
 **Meaning:** the city built by its followers.
 
-**Done:** Instagram @follopolis (photo, name and bio set), website live. **Still to do:** the website link in the Instagram bio (phone app only) and the YouTube channel.
+**Done:** Instagram @follopolis, website https://follopolis.github.io, GitHub organization Follopolis, YouTube @Follopolis (banner, logo, description, links, keywords). **Still to do:** the website link in the Instagram bio (phone app only), verifying the YouTube channel with your phone, and YouTube's country of residence setting.
 
 ---
 
