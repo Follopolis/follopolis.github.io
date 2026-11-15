@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <!-- Follopolis logo: a comment bubble with a little town inside (comments build the city) -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFB547"/>
+      <stop offset="1" stop-color="#FF5F8A"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0.3" cy="0.22" r="0.75">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#7a1f3d" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="1000" rx="220" fill="url(#bg)"/>
+  <rect width="1000" height="1000" rx="220" fill="url(#shine)"/>
+
+  <g transform="translate(500 512) scale(1.13) translate(-500 -520)">
+  <!-- the comment bubble -->
+  <path filter="url(#shadow)" fill="#FFF8EE" stroke="#FFF8EE" stroke-width="28" stroke-linejoin="round"
+        d="M330,240 H670 A110,110 0 0 1 780,350 V590 A110,110 0 0 1 670,700 H440 L292,800 L338,700 H330 A110,110 0 0 1 220,590 V350 A110,110 0 0 1 330,240 Z"/>
+
+  <!-- the town -->
+  <g stroke-linejoin="round" stroke-width="14">
+    <!-- left house -->
+    <rect x="300" y="492" width="118" height="112" fill="#26305C"/>
+    <path d="M286,500 L359,428 L432,500 Z" fill="#FF6F91" stroke="#FF6F91"/>
+    <rect x="339" y="522" width="40" height="40" rx="7" fill="#FFC25C"/>
+
+    <!-- right house -->
+    <rect x="582" y="482" width="118" height="122" fill="#26305C"/>
+    <path d="M568,490 L641,418 L714,490 Z" fill="#FF6F91" stroke="#FF6F91"/>
+    <rect x="621" y="515" width="40" height="40" rx="7" fill="#FFC25C"/>
+
+    <!-- tall middle house, in front -->
+    <rect x="536" y="338" width="26" height="70" fill="#26305C"/>
+    <rect x="430" y="408" width="140" height="196" fill="#26305C"/>
+    <path d="M412,420 L500,326 L588,420 Z" fill="#FF6F91" stroke="#FF6F91"/>
+    <circle cx="500" cy="462" r="22" fill="#FFC25C"/>
+    <path d="M477,604 V546 A23,23 0 0 1 523,546 V604 Z" fill="#FFC25C"/>
+
+    <!-- ground -->
+    <rect x="276" y="598" width="448" height="26" rx="13" fill="#26305C"/>
+  </g>
+  </g>
+</svg>
